@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<body onload='myFunction()'>
+
+		<table id="myTable" border=1>
+			{% for key, value in result.items() %}
+				<tr>
+				   <th> {{key}} </th>
+				   <td> {{value}} </td>
+				</tr>
+			{% endfor %}
+		</table>
+		
+		<img alt="Profile Photo" id="profile_image" src="nothing.jpg" />
+		<!-- <img alt="Banner Photo" id="banner_image" src="nothing.jpg" /> -->
+		
+		<script> 
+			function myFunction() {
+				document.getElementById('profile_image').src="http://pbs.twimg.com/profile_images/970697134956785664/IWLwgRqz_400x400.jpg";
+				
+				var Rows = document.getElementById("myTable").rows;
+				var i;
+				for (i=0; i<Rows.length; i++){
+					if(i==3){
+						document.getElementById('profile_image').src=Rows[i].cells[1].innerHTML;
+					}
+					<!-- if(i==4){ -->
+						<!-- document.getElementById('banner_image').src=Rows[i].cells[1].innerHTML; -->
+					<!-- } -->
+				}
+			}
+		</script>
+
+	</body>
+</html>
